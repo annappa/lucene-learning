@@ -1,4 +1,4 @@
-package com.kscm.lucene;
+package com.kscm.lucene.common;
 
 import java.io.File;
 import java.io.FileFilter;

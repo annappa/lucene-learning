@@ -1,8 +1,9 @@
-package com.kscm.lucene;
+package com.kscm.lucene.search1;
 
 import java.io.File;
 import java.io.IOException;
 
+import com.kscm.lucene.common.LuceneConstants;
 import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.CorruptIndexException;
@@ -17,13 +18,11 @@ import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
 
 public class Searcher {
-
     IndexSearcher indexSearcher;
     QueryParser queryParser;
     Query query;
 
-    public Searcher(String indexDirectoryPath)
-            throws IOException {
+    public Searcher(String indexDirectoryPath) throws IOException {
         Directory indexDirectory =
                 FSDirectory.open(new File(indexDirectoryPath));
         indexSearcher = new IndexSearcher(indexDirectory);
@@ -35,6 +34,10 @@ public class Searcher {
     public TopDocs search( String searchQuery)
             throws IOException, ParseException {
         query = queryParser.parse(searchQuery);
+        return indexSearcher.search(query, LuceneConstants.MAX_SEARCH);
+    }
+
+    public TopDocs search(Query query) throws IOException, ParseException {
         return indexSearcher.search(query, LuceneConstants.MAX_SEARCH);
     }
 

@@ -1,4 +1,4 @@
-package com.kscm.lucene;
+package com.kscm.lucene.common;
 
 public class LuceneConstants {
     public static final String CONTENTS = "contents";

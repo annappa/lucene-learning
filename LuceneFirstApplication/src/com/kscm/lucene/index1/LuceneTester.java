@@ -1,7 +1,9 @@
-package com.kscm.lucene;
+package com.kscm.lucene.index1;
 
 import java.io.IOException;
 
+import com.kscm.lucene.common.TextFileFilter;
+import com.kscm.lucene.common.LuceneConstants;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.queryParser.ParseException;
 import org.apache.lucene.search.ScoreDoc;
